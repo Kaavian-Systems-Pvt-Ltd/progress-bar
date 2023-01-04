@@ -28,11 +28,9 @@ export default function Progress(props) {
   let progress = setInterval(() => {
     progressValue ++;
     const element = document.getElementById('printValue');
-    if(element){
-    element.textContent = `${progressValue}%`
-  } else{
-    console.log('error');
-  }
+
+    element.textContent = progressValue
+ 
 
     document.getElementById('circle').style.background = `conic-gradient(
       #0e8692 ${progressValue * 3.6}deg,

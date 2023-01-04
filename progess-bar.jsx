@@ -30,11 +30,7 @@ function Progress(props) {
   var progress = setInterval(function () {
     progressValue++;
     var element = document.getElementById('printValue');
-    if (element) {
-      element.textContent = "".concat(progressValue, "%");
-    } else {
-      console.log('error');
-    }
+    element.textContent = progressValue;
     document.getElementById('circle').style.background = "conic-gradient(\n      #0e8692 ".concat(progressValue * 3.6, "deg,\n      #cadcff ").concat(progressValue * 3.6, "deg\n    )");
     if (progressValue === progressEndValue) {
       clearInterval(progress);
