@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
 import './progress.css';
 import PropTypes from 'prop-types';
 
