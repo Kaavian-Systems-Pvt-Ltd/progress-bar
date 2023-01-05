@@ -7,6 +7,7 @@ exports["default"] = Progress;
 var _react = require("react");
 require("./progress.css");
 var _propTypes = _interopRequireDefault(require("prop-types"));
+var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function Progress(props) {
@@ -46,14 +47,15 @@ function Progress(props) {
     'width': props.width,
     'height': props.height
   };
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: "circularProgress",
     id: "circle",
-    style: setStyle
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "value-container",
-    id: "printValue"
-  }));
+    style: setStyle,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      className: "value-container",
+      id: "printValue"
+    })
+  });
 }
 ;
 Progress.propTypes = {
