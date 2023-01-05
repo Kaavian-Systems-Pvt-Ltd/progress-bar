@@ -4,21 +4,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = Progress;
+var _react = require("react");
 require("./progress.css");
 var _propTypes = _interopRequireDefault(require("prop-types"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-/**
- * 
- * @param {String} props.width width of slider in percentage
- * @param {String} props.height height of the slider in pixels
- * @param {Number} props.percentage calculate the actual percentage and give it as a number 
- * @returns slideshow
- * 
- */
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function Progress(props) {
-  var progressBar = document.querySelector('.circularProgress');
-  var valueContainer = document.querySelector('.value-container');
+  // const progressBar = document.querySelector('.circularProgress');
+  //const circle = document.getElementById('circle')
+  //const valueContainer = document.getElementById('printValue');
+  //const element = document.getElementById('printValue');
+  console.log(_typeof(props.percentage));
   var progressValue = 0;
   var progressEndValue = 0;
   if (props.percentage) {
@@ -29,9 +25,18 @@ function Progress(props) {
   var speed = 45;
   var progress = setInterval(function () {
     progressValue++;
+    //console.log(progressValue);
+    //valueContainer.textContent = `${progressValue}%`
     var element = document.getElementById('printValue');
-    element.textContent = progressValue;
-    document.getElementById('circle').style.background = "conic-gradient(\n      #0e8692 ".concat(progressValue * 3.6, "deg,\n      #cadcff ").concat(progressValue * 3.6, "deg\n    )");
+    console.log(element);
+    if (element) {
+      element.textContent = progressValue;
+    } else {
+      console.log('error bro');
+    }
+    console.log(progressValue);
+    var progressBar = document.getElementById('circle');
+    progressBar.style.background = "conic-gradient(\n      #0e8692 ".concat(progressValue * 3.6, "deg,\n      #cadcff ").concat(progressValue * 3.6, "deg\n    )");
     if (progressValue === progressEndValue) {
       clearInterval(progress);
     }
@@ -47,8 +52,9 @@ function Progress(props) {
   }, /*#__PURE__*/React.createElement("div", {
     className: "value-container",
     id: "printValue"
-  }, "0%"));
+  }));
 }
+;
 Progress.propTypes = {
   'width': _propTypes["default"].string,
   'height': _propTypes["default"].string
@@ -57,3 +63,62 @@ Progress.defaultProps = {
   'width': '250px',
   'height': '250px'
 };
+
+// import { useState } from 'react';
+// import { useEffect } from 'react';
+// import './progress.css';
+// export default function Progress({present}) {
+//   const [data, setData] = useState('');
+//   // const anim = keyframes`
+//   // 100%{ stroke-dashoffset:22.44; }`;
+//   // const style = {
+//   //   fill: 'none',
+//   // stroke: 'cornflowerblue',
+//   // strokeWidth: '1.5rem',
+//   // strokeDasharray: '561',
+//   // strokeDashoffset: '561',
+//   // animation: `${anim} 2.7s linear forwards`
+//   // } 
+//   useEffect( ()=> {
+//     let number = 100;
+//     let counter = 0;
+//     // let Progress = document.querySelector('span');
+//     // const value = 561 - 561 * (present/100);
+//     // console.log(value);
+//     // Progress.style.strokeDashoffset(value)
+//     setInterval( ()=> {
+//       if(counter === present){
+//         clearInterval();
+//       }else{
+//         console.log(counter);
+//        counter = counter + 1;
+//        setData(counter);
+//       } 
+//     }, 29)
+//   },[] )
+//   return (
+//     <body className='progressBody'>
+//   <div className="progressCircle">
+//     <div className="outerCircle">
+//       <div className="innerCircle">
+//         <span className="number">
+//           {data}{'%'}
+//         </span>
+//       </div>
+//     </div>
+//     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500" height="500">
+//          <defs>
+//             <linearGradient id="GradientColor">
+//                <stop offset="0%" stop-color="#e91e63" />
+//                <stop offset="100%" stop-color="#673ab7" />
+//             </linearGradient>
+//          </defs>
+//          <circle cx="200" cy="200" r="90" stroke-linecap="round"  />
+//  </svg>
+//   </div>
+//     </body>
+//   )
+// }
+
+// // module.exports = { 
+// //   Progress };
