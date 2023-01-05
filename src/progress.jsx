@@ -1,5 +1,18 @@
 import "./progress.css";
 import PropTypes from "prop-types";
+
+
+/**
+ * 
+ * @param {String} props.width width of the progress circle in pixels
+ * @param {String} props.height height of the progress circle in pixels
+ * @param {Number} props.percentage calculate the actual percentage and pass it 
+ * @param {String} props.fontsize size of the font in pixels
+ * @returns progressCircle
+ * 
+ */
+
+
 export default function Progress(props) {
   console.log(typeof props.percentage);
   let progressValue = 0;
@@ -14,11 +27,9 @@ export default function Progress(props) {
   let progress = setInterval(() => {
     progressValue++;
     const element = document.getElementById("printValue");
-    console.log(element);
     if (element) {
       element.textContent = progressValue;
     }
-    console.log(progressValue);
     document.getElementById("circle").style.background = `conic-gradient(
       #0e8692 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
@@ -36,11 +47,11 @@ export default function Progress(props) {
     'font-size' : props.fontsize,
   }
   return (
-    <div className="circleDiv">
+    
       <div className="circularProgress" id="circle" style={setStyle}>
         <div className="value-container" id="printValue" style={setFontSize}></div>
       </div>
-    </div>
+  
   );
 }
 
