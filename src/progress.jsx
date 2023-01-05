@@ -29,10 +29,11 @@ export default function Progress(props) {
     element.textContent = progressValue
     }else{
       console.log('error bro');
+      clearInterval(progress);
     }
     console.log(progressValue);
-    const progressBar = document.getElementById('circle');
-    progressBar.style.background = `conic-gradient(
+    //const progressBar = document.getElementById('circle');
+    document.getElementById('circle').style.background = `conic-gradient(
       #0e8692 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
     )`

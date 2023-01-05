@@ -33,10 +33,11 @@ function Progress(props) {
       element.textContent = progressValue;
     } else {
       console.log('error bro');
+      clearInterval(progress);
     }
     console.log(progressValue);
-    var progressBar = document.getElementById('circle');
-    progressBar.style.background = "conic-gradient(\n      #0e8692 ".concat(progressValue * 3.6, "deg,\n      #cadcff ").concat(progressValue * 3.6, "deg\n    )");
+    //const progressBar = document.getElementById('circle');
+    document.getElementById('circle').style.background = "conic-gradient(\n      #0e8692 ".concat(progressValue * 3.6, "deg,\n      #cadcff ").concat(progressValue * 3.6, "deg\n    )");
     if (progressValue === progressEndValue) {
       clearInterval(progress);
     }
