@@ -32,10 +32,13 @@ export default function Progress(props) {
     width: props.width,
     height: props.height,
   };
+  const setFontSize = {
+    'font-size' : props.fontsize,
+  }
   return (
     <div className="circleDiv">
       <div className="circularProgress" id="circle" style={setStyle}>
-        <div className="value-container" id="printValue"></div>
+        <div className="value-container" id="printValue" style={setFontSize}></div>
       </div>
     </div>
   );

@@ -36,6 +36,9 @@ function Progress(props) {
     width: props.width,
     height: props.height
   };
+  var setFontSize = {
+    'font-size': props.fontsize
+  };
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     className: "circleDiv",
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -44,7 +47,8 @@ function Progress(props) {
       style: setStyle,
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
         className: "value-container",
-        id: "printValue"
+        id: "printValue",
+        style: setFontSize
       })
     })
   });
